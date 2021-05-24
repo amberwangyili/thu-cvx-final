@@ -1,0 +1,6 @@
+#### general settings
+solver: 'Gurobi'
+method: 'Dual'
+mode: 'Naive'
+dim_n: 32 
+dim_m: 32
