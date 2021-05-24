@@ -1,3 +1,4 @@
-# 2020-Autumn
+simply run 
+` python test.py -config configs/test_mosek.yml`
 
-## 组合数学
+be sure you installed all needed packages
