@@ -13,6 +13,8 @@ def create_solver(opt):
         from .Gurobi_solver import GurobiSolver as S
     elif solver == 'Mosek':
         from .Mosek_solver import MosekSolver as S
+    elif solver == 'ADMM':
+        from .ADMM_solver import ADMMSolver as S
     else:
         raise NotImplementedError('Solver [{:s}] not recognized.'.format(solver))
     s = S(opt)
