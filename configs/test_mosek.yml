@@ -1,10 +1,11 @@
 #### general settings
 solver: 'ADMM'
 method: 'Dual'
-mode: 'Naive'
+mode: 'Caffa'
 dim_n: 32 
 dim_m: 32
 rhos: [3.]
 max_iter_step: 10000
 iter_thre: 0.0001
 alpha: 1.618
+class: 'WhiteNoise'

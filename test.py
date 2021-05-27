@@ -20,10 +20,8 @@ def main():
 
 	#generate random data
 	sampler = create_sampler(cfg)
-	cfg["mu"] = sampler.sample_weight(cfg['dim_n'])
-	cfg['nu'] = sampler.sample_weight(cfg['dim_m'])
+	cfg["mu"], cfg['nu'] = sampler.sample_weight(cfg['dim_n'], cfg['dim_m'])
 	cfg["C"] = sampler.sample_cost(cfg['dim_n'],cfg['dim_m'])
-
 
 	solver = create_solver(cfg)
 	solver.solve()
