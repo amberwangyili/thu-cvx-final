@@ -2,7 +2,7 @@
 # @Author: Mengfei Xia
 # @Date:   2021-05-25 12:39:07
 # @Last Modified by:   amberwangyili
-# @Last Modified time: 2021-06-02 18:20:15
+# @Last Modified time: 2021-06-02 18:36:37
 import time
 import math
 import numpy as np
@@ -46,11 +46,12 @@ class ADMMSolver(BaseSolver):
     x, x_hat, e, lamb, eta = self._init_primal()
     m, n = self.m, self.n
     tot_iter = 0
+    verbose_step = int(self.iter_thre * self.max_iter_step)
     for rho in self.rhos:
       for i in range(self.max_iter_step):
         tot_iter += 1
         x, x_hat, e, lamb, eta = self._update_primal(m, n, self.mu, self.nu, self.C, x, x_hat, e, lamb, eta, rho, self.alpha)
-        if tot_iter % 500 == 0:
+        if tot_iter % verbose_step == 0:
           err_mu = np.linalg.norm(x_hat.sum(axis=1) - self.mu, 1)
           err_nu = np.linalg.norm(x_hat.sum(axis=0) - self.nu, 1)
           loss = (self.C * x_hat).sum()
