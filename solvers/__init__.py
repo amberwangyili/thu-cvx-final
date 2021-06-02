@@ -2,7 +2,7 @@
 # @Author: amberwangyili
 # @Date:   2021-05-24 12:50:07
 # @Last Modified by:   amberwangyili
-# @Last Modified time: 2021-06-02 17:14:55
+# @Last Modified time: 2021-06-02 18:24:17
 import logging
 logger = logging.getLogger('base')
 
@@ -20,6 +20,8 @@ def create_solver(opt):
             from .ADMM_solver import EADMMSolver as S    
         else:
             from .ADMM_solver import ADMMSolver as S
+    elif solver == 'Sinkhorn':
+        from .Sinkhorn_solver import SinkhornSolver as S    
     else:
         raise NotImplementedError('Solver [{:s}] not recognized.'.format(solver))
     s = S(opt)

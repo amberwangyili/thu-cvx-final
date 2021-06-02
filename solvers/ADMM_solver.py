@@ -2,7 +2,7 @@
 # @Author: Mengfei Xia
 # @Date:   2021-05-25 12:39:07
 # @Last Modified by:   amberwangyili
-# @Last Modified time: 2021-06-02 17:20:53
+# @Last Modified time: 2021-06-02 18:20:15
 import time
 import math
 import numpy as np
@@ -78,11 +78,12 @@ class ADMMSolver(BaseSolver):
     d, e, lamb, eta = self._init_dual()
     m, n = self.m, self.n
     tot_iter = 0
+    verbose_step = int(self.iter_thre * self.max_iter_step)
     for rho in self.rhos:
       for i in range(self.max_iter_step):
         tot_iter += 1
         d, e, lamb, eta = self._update_dual(m, n, self.mu, self.nu, self.C, d, e, lamb, eta, rho, self.alpha)
-        if tot_iter % 500 == 0:
+        if tot_iter % verbose_step == 0:
           x_hat = -d
           err_mu = np.linalg.norm(x_hat.sum(axis=1) - self.mu, 1)
           err_nu = np.linalg.norm(x_hat.sum(axis=0) - self.nu, 1)
