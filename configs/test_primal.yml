@@ -1,0 +1,12 @@
+#### general settings
+solver: 'ADMM'
+method: 'Primal'
+is_regularized: False
+mode: 'Caffa'
+dim_n: 320
+dim_m: 320
+rhos: [3.]
+max_iter_step: 1000
+iter_thre: 0.1
+alpha: 1.618
+class: 'WhiteNoise'

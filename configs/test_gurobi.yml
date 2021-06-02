@@ -1,0 +1,5 @@
+solver: 'Gurobi'
+method: 'Dual'
+mode: 'Random'
+dim_n: 32 
+dim_m: 32

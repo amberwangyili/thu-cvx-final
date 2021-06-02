@@ -1,0 +1,10 @@
+#### general settings
+solver: 'Sinkhorn'
+is_regularized: True
+epsilon: 0.01
+mode: 'Caffa'
+dim_n: 1000
+dim_m: 1000
+max_iter_step: 1000
+iter_thre: 0.01
+class: 'WhiteNoise'
