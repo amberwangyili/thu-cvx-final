@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# @Author: Amber
+# @Author: amberwangyili
 # @Date:   2021-05-24 12:39:07
-# @Last Modified by:   yiliwang
-# @Last Modified time: 2021-05-24 14:54:58
+# @Last Modified by:   amberwangyili
+# @Last Modified time: 2021-06-02 16:35:36
 import mosek
 import time
 import math

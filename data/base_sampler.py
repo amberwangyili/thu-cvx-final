@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# @Author: Amber
+# @Author: amberwangyili
 # @Date:   2021-05-24 13:56:54
-# @Last Modified by:   yiliwang
-# @Last Modified time: 2021-05-24 14:35:07
+# @Last Modified by:   amberwangyili
+# @Last Modified time: 2021-06-02 16:36:27
 
 import numpy as np
 class BaseSampler():

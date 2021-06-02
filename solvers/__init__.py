@@ -1,20 +1,25 @@
 # -*- coding: utf-8 -*-
-# @Author: Amber
+# @Author: amberwangyili
 # @Date:   2021-05-24 12:50:07
-# @Last Modified by:   yiliwang
-# @Last Modified time: 2021-05-24 15:15:08
+# @Last Modified by:   amberwangyili
+# @Last Modified time: 2021-06-02 17:14:55
 import logging
 logger = logging.getLogger('base')
 
 
 def create_solver(opt):
     solver = opt['solver']
+    is_regularized = opt['is_regularized']
+
     if solver == 'Gurobi':  
         from .Gurobi_solver import GurobiSolver as S
     elif solver == 'Mosek':
         from .Mosek_solver import MosekSolver as S
     elif solver == 'ADMM':
-        from .ADMM_solver import ADMMSolver as S
+        if is_regularized:
+            from .ADMM_solver import EADMMSolver as S    
+        else:
+            from .ADMM_solver import ADMMSolver as S
     else:
         raise NotImplementedError('Solver [{:s}] not recognized.'.format(solver))
     s = S(opt)
