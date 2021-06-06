@@ -18,7 +18,8 @@ class GurobiSolver(BaseSolver):
 	def __init__(self,opt):
 		super(GurobiSolver,self).__init__(opt)
 		self.method = method2paras[opt['method']]
-		m,n = self.C.shape		
+		m,n = self.C.shape
+		print('Gurobi solver has been constructed.')	
 		self.M = Model("OT")
 		self.M.setParam(GRB.Param.Method,self.method)
 		self.M.setParam('OutputFlag', False) 
@@ -35,6 +36,8 @@ class GurobiSolver(BaseSolver):
 		sx = self.M.getAttr("x", self.res)
 		pi = np.array([sx[i, j] for i in range(m) for j in range(n)]).reshape(m, n)
 		loss = (self.C * pi).sum()
-		print('Time: {0}\nLoss: {1}'.format(tm,loss))
+		err_mu = np.linalg.norm(pi.sum(axis=1) - self.mu, 1)
+		err_nu = np.linalg.norm(pi.sum(axis=0) - self.nu, 1)
+		print('Time: {0}\nLoss: {1}\nerr_mu: {2}\nerr_nu: {3}'.format(tm,loss, err_mu, err_nu))
 		return pi
 

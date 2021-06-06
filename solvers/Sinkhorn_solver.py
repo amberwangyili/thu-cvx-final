@@ -15,6 +15,7 @@ class SinkhornSolver(BaseSolver):
 		self.max_iter_step = opt['max_iter_step']
 		self.iter_thre = opt['iter_thre']    
 		self.epsilon = opt['epsilon']
+    	print('Sinkhorn solver has been constructed.')
 		self.K = np.exp(-self.C/self.epsilon)
   
 	def _init(self):

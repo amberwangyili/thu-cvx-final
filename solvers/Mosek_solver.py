@@ -23,6 +23,7 @@ class MosekSolver(BaseSolver):
 		super(MosekSolver,self).__init__(opt)
 		self.method, self.soltype  = method2paras[opt['method']]
 		self.env = mosek.Env()
+		print('Mosek solver has been constructed.')
 		self.task = self.env.Task()
 		self._set_task()
 
@@ -54,6 +55,8 @@ class MosekSolver(BaseSolver):
 		tm = self.task.getdouinf(mosek.dinfitem.optimizer_time)
 		it = self.task.getintinf(mosek.iinfitem.intpnt_iter)
 		loss = (self.C * res).sum()
-		print('Time: {0}\nIterations: {1}\nLoss: {2}'.format(tm,it,loss))
+		err_mu = np.linalg.norm(res.sum(axis=1) - self.mu, 1)
+		err_nu = np.linalg.norm(res.sum(axis=0) - self.nu, 1)
+		print('Time: {0}\nIterations: {1}\nLoss: {2}\nerr_mu: {3}\n err_nu: {4}'.format(tm,it,loss, err_mu, err_nu))
 		return res
 

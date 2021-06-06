@@ -18,6 +18,7 @@ class ADMMSolver(BaseSolver):
     self.rhos = opt['rhos']
     self.iter_thre = opt['iter_thre']
     self.alpha = opt['alpha']
+    print('ADMM solver has been constructed.')
 
   def _init_primal(self):
     m, n = self.m, self.n
