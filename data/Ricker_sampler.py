@@ -12,6 +12,7 @@ from scipy.io import loadmat
 class RickerSampler(BaseSampler):
   def __init__(self, opt):
     super(RickerSampler, self).__init__(opt)
+    print('Ricker sampler has been constructed.')
     self.data = loadmat('./datasets/Ricker/shift_of_Ricker.mat')
   
   def sample_weight(self,dim_n, dim_m):

@@ -15,7 +15,7 @@ class BaseSampler():
   def _l2_loss(self,mu,nu):
     m, n = mu.shape[0], nu.shape[0]
     ind = np.indices((m,n))
-    return (((mu[ind[0]])-(mu[ind[1]]))**2).sum(axis=2)
+    return (((mu[ind[0]])-(nu[ind[1]]))**2).sum(axis=2)
 
 
   def sample_weight(self,dim_n, dim_m):

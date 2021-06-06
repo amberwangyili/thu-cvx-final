@@ -18,10 +18,11 @@ class DOTSampler(BaseSampler):
     m, n = opt['dim_m'], opt['dim_n']
     assert((m == n) and m in [32, 64])
     self.data_class = opt['class']
+    print('DOTmark sampler has been constructed.')
 
   def sample_weight(self,dim_n, dim_m):
     path = os.getcwd()
-    index = np.random.choice(range(1, 10), 2, replace=None)
+    index = [1, 2]
     w = []
     for i in index:
       with open(path + '/datasets/DOT/' + self.data_class + '/data' + str(dim_n) + '_100' + str(i) + '.csv') as csvfile:

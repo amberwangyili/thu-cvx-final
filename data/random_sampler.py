@@ -6,9 +6,11 @@
 import numpy as np
 from .base_sampler import BaseSampler
 
+
 class RandomSampler(BaseSampler):
   def __init__(self, opt):
     super(RandomSampler, self).__init__(opt)
+    print('Random sampler has been constructed.')
 
   def sample_weight(self,dim_n, dim_m):
     mu = np.random.random(dim_n)

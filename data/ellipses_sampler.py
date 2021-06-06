@@ -11,6 +11,7 @@ from .base_sampler import BaseSampler
 class EllipsesSampler(BaseSampler):
   def __init__(self, opt):
     super(EllipsesSampler, self).__init__(opt)
+    print('Ellipses sampler has been constructed.')
   
   def sample_weight(self,dim_n, dim_m):
     return self.sample_constant_weight(dim_n, dim_m)

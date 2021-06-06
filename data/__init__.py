@@ -16,6 +16,10 @@ def create_sampler(opt):
     from .ellipses_sampler import EllipsesSampler as G
   elif mode == 'Caffa':
     from .caffarelli_sampler import CaffarelliSampler as G
+  elif mode == 'Load':
+    from .load_sampler import LoadSampler as G
+  elif mode == 'Ricker':
+    from .Ricker_sampler import RickerSampler as G
   else:
     raise NotImplementedError('Mode [{:s}] is not recognized.'.format(mode))
   data = G(opt)

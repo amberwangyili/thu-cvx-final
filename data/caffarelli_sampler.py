@@ -11,6 +11,7 @@ from .base_sampler import BaseSampler
 class CaffarelliSampler(BaseSampler):
   def __init__(self, opt):
     super(CaffarelliSampler, self).__init__(opt)
+    print('Caffarelli sampler has been constructed.')
   
   def sample_weight(self,dim_n, dim_m):
     return self.sample_constant_weight(dim_n, dim_m)

@@ -9,6 +9,7 @@ from .base_sampler import BaseSampler
 class NaiveSampler(BaseSampler):
   def __init__(self):
     super(NaiveSampler, self).__init__()
+    print('Naive sampler has been constructed.')
 
   def sample_weight(self,dim):
     vec = np.random.random(dim)
